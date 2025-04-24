@@ -4,17 +4,32 @@
  */
 package proyecto_progra2025pp;
 
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  *
  * @author ALIS
  */
-public class Proyecto_Progra2025PP {
+public class Proyecto_Progra2025PP extends Application {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    //Configuracion del MAIN
+    @Override
+    public void start (Stage primaryStage) throws IOException  {
+   
+    Parent root = FXMLLoader.load(getClass().getResource("/proyecto_progra2025pp/Login.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Proyecto_Progra2025PP");
+        primaryStage.show();
     }
     
+    public static void main (String []args){
+    launch (args);
+    }
 }
+

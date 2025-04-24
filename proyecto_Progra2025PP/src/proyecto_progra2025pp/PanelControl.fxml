@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto_progra2025pp.PanelControlController">
+   <children>
+      <TabPane layoutX="-2.0" layoutY="-5.0" prefHeight="408.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Config. Sistema">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="281.0" layoutY="107.0" prefHeight="17.0" prefWidth="87.0" text="Tickets S.A." />
+                        <ImageView fitHeight="37.0" fitWidth="102.0" layoutX="237.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/uva.jpeg" />
+                           </image>
+                        </ImageView>
+                        <ComboBox layoutX="281.0" layoutY="39.0" prefWidth="150.0" promptText="Español" />
+                        <Label layoutX="330.0" layoutY="14.0" text="Idioma" />
+                        <Label layoutX="474.0" layoutY="14.0" text="Zona Horaria" />
+                        <ComboBox layoutX="442.0" layoutY="39.0" prefWidth="150.0" promptText="Guatemala GT" />
+                        <Label layoutX="42.0" layoutY="181.0" text="Tiempo de Vencimiento (Tickets Inactivos)" />
+                        <Label layoutX="356.0" layoutY="181.0" text="Niveles de Prioridad (Tickets)" />
+                        <TextField layoutX="79.0" layoutY="208.0" />
+                        <ComboBox layoutX="367.0" layoutY="208.0" prefWidth="150.0" promptText="Alta" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
