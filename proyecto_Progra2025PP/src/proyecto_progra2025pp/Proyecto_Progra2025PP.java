@@ -33,7 +33,8 @@ public class Proyecto_Progra2025PP extends Application {
     }
     
     //PRIMERA IMPLEMENTACION DE CODIGO PARA CONEXION A BASE DE DATOS
-    public class ConexionBD {
+   
+    /*public class ConexionBD {
     // Datos de conexión
     private static final String URL = "---";
     private static final String USUARIO = "*--";
@@ -72,7 +73,7 @@ public class Proyecto_Progra2025PP extends Application {
             }
         }
     }
-}    
+}    */
     
 }
 
