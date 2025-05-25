@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ALIS/Documents/NetBeansProjects/proyecto_Progra2025PP/src/proyecto_progra2025pp/Ticket.java</file>
-            <file>file:/C:/Users/ALIS/Documents/NetBeansProjects/proyecto_Progra2025PP/src/proyecto_progra2025pp/Cola_tickets.java</file>
+            <file>file:/C:/Users/ALIS/Documents/NetBeansProjects/proyecto_Progra2025PP/src/proyecto_progra2025pp/PanelControl.fxml</file>
+            <file>file:/C:/Users/ALIS/Documents/NetBeansProjects/proyecto_Progra2025PP/src/proyecto_progra2025pp/LoginController.java</file>
+            <file>file:/C:/Users/ALIS/Documents/NetBeansProjects/proyecto_Progra2025PP/src/proyecto_progra2025pp/Login.fxml</file>
+            <file>file:/C:/Users/ALIS/Documents/NetBeansProjects/proyecto_Progra2025PP/src/proyecto_progra2025pp/PanelControlController.java</file>
         </group>
     </open-files>
 </project-private>
