@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
     private void abreMenuPrincipal(String tipo) {
        {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("proyecto_progra2025pp/PanelControl.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PanelControl.fxml"));
         Parent root = loader.load();
 
         Stage stage = new Stage();
