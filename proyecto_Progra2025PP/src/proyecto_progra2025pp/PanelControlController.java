@@ -43,6 +43,32 @@ public class PanelControlController implements Initializable {
         
         comboZonaHora.setItems(zonas);
         comboZonaHora.setValue("America/Guatemala");
+        
+        // Idiomas
+        comboIdioma.setItems(FXCollections.observableArrayList("Español", "Inglés"));
+        comboIdioma.setValue("Español");
+
+        // Listener para cambio de idioma
+        
+        comboIdioma.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            cambiarIdioma(newVal);
+        });
+        
+        //Etiquetas al español al iniciar
+        cambiarIdioma("Español");
     
     }    
+        private void cambiarIdioma(String idiomaSeleccionado) {
+        Locale locale = idiomaSeleccionado.equals("Español") ? new Locale("es", "ES") : new Locale("en", "US");
+        ResourceBundle bundle = ResourceBundle.getBundle("Idiomas.Messages", locale);
+
+        labelIdioma.setText(bundle.getString("label.idioma"));
+        labelZonaHoraria.setText(bundle.getString("label.zonaHoraria"));
+        // Aquí puedes agregar más etiquetas si las tienes con fx:id
+    }
 }
+
+
+
+
+
