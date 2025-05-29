@@ -36,6 +36,7 @@
                            <image>
                               <Image url="@Ticket.png" />
                            </image></ImageView>
+                        <Button fx:id="Configuracion" layoutX="104.0" layoutY="284.0" mnemonicParsing="false" onAction="#guardarConfiguracion" text="Guardar Config." />
                      </children>
                   </AnchorPane>
             </content>

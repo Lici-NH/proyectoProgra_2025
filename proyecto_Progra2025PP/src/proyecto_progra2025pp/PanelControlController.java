@@ -14,6 +14,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.lang.IllegalArgumentException;
 import java.lang.NumberFormatException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 import java.net.URL;
 import java.util.Locale;
@@ -39,6 +42,7 @@ public class PanelControlController implements Initializable {
         private javafx.scene.control.TextField txtVencimiento;
         @FXML
         private ComboBox<String> comboPrioridad;
+       
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -98,8 +102,52 @@ public class PanelControlController implements Initializable {
         public String getPrioridadSeleccionada() {
         return comboPrioridad.getValue();
         }
-   
+        
+        //Boton
+        @FXML
+        private void guardarConfiguracion() {
+        try (java.sql.Connection conn = Conexion.getConexion();
+         java.sql.PreparedStatement ps = conn.prepareStatement(
+             "INSERT INTO configuracion (vencimiento_dias, prioridad, idioma, zona_horaria) VALUES (?, ?, ?, ?)")) {
+
+        int vencimiento = getDiasVencimiento();
+        String prioridad = getPrioridadSeleccionada();
+        String idioma = comboIdioma.getValue();
+        String zona = comboZonaHora.getValue();
+
+        ps.setInt(1, vencimiento);
+        ps.setString(2, prioridad);
+        ps.setString(3, idioma);
+        ps.setString(4, zona);
+
+        ps.executeUpdate();
+        mostrarAlertaInfo("Configuración guardada en la base de datos correctamente.");
+
+    } catch (IllegalArgumentException ex) {
+        mostrarAlertaError("Error de Validación", ex.getMessage());
+    } catch (java.sql.SQLException ex) {
+        mostrarAlertaError("Error de Base de Datos", "No se pudo guardar la configuración: " + ex.getMessage());
+    }
+}
+        // Muestra una alerta informativa
+        private void mostrarAlertaInfo(String mensaje) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+}
+
+        // Muestra una alerta de error con título y mensaje
+        private void mostrarAlertaError(String titulo, String mensaje) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
         }
+}
+
         
             
 
