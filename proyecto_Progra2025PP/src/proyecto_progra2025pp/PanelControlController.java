@@ -12,6 +12,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.lang.IllegalArgumentException;
+import java.lang.NumberFormatException;
 
 import java.net.URL;
 import java.util.Locale;
@@ -33,6 +35,10 @@ public class PanelControlController implements Initializable {
         private Label labelIdioma;
         @FXML
         private Label labelZonaHoraria;
+        @FXML
+        private javafx.scene.control.TextField txtVencimiento;
+        @FXML
+        private ComboBox<String> comboPrioridad;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,24 +55,53 @@ public class PanelControlController implements Initializable {
         comboIdioma.setValue("Español");
 
         // Listener para cambio de idioma
-        
         comboIdioma.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             cambiarIdioma(newVal);
         });
         
         //Etiquetas al español al iniciar
         cambiarIdioma("Español");
+        
+        //Niveles de Prioridad (Campo No.6)
+        comboPrioridad.setItems(FXCollections.observableArrayList("Alta", "Media", "Baja"));
+        comboPrioridad.setValue("Alta");
     
-    }    
+    }  
+        //Metodo
         private void cambiarIdioma(String idiomaSeleccionado) {
         Locale locale = idiomaSeleccionado.equals("Español") ? new Locale("es", "ES") : new Locale("en", "US");
         ResourceBundle bundle = ResourceBundle.getBundle("Idiomas.Messages", locale);
 
         labelIdioma.setText(bundle.getString("label.idioma"));
         labelZonaHoraria.setText(bundle.getString("label.zonaHoraria"));
-        // Aquí puedes agregar más etiquetas si las tienes con fx:id
-    }
-}
+        }
+        
+        //Metodo para obtenr y validar el vencimiento 
+        public int getDiasVencimiento() throws IllegalArgumentException {
+        String input = txtVencimiento.getText();
+        if (input == null || input.trim().isEmpty() ){
+        throw new IllegalArgumentException("El campo de vencimiento no puede estar vacio.");
+        }
+        
+        try {
+        int dias = Integer.parseInt(input);
+        if (dias < 1 || dias > 365){
+        throw new IllegalArgumentException("Debe estar entre 1 y 365 días.");
+        }
+        return dias;
+        } catch (NumberFormatException e){ 
+        throw new IllegalArgumentException("Debe ingresar numeros validos.");
+        }
+        }
+            
+        //Metodo Para la prioridad
+        public String getPrioridadSeleccionada() {
+        return comboPrioridad.getValue();
+        }
+   
+        }
+        
+            
 
 
 

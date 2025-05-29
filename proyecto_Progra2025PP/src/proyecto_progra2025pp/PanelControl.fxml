@@ -30,12 +30,13 @@
                         <ComboBox fx:id="comboZonaHora" layoutX="442.0" layoutY="39.0" prefWidth="150.0" promptText="Guatemala GT" />
                         <Label layoutX="42.0" layoutY="181.0" text="Tiempo de Vencimiento (Tickets Inactivos)" />
                         <Label layoutX="356.0" layoutY="181.0" text="Niveles de Prioridad (Tickets)" />
-                        <TextField layoutX="79.0" layoutY="208.0" />
-                        <ComboBox layoutX="367.0" layoutY="208.0" prefWidth="150.0" promptText="Alta" />
+                        <TextField fx:id="txtVencimiento" layoutX="79.0" layoutY="208.0" />
+                        <ComboBox fx:id="comboPrioridad" layoutX="367.0" layoutY="208.0" prefWidth="150.0" promptText="Alta" />
                         <ImageView fitHeight="54.0" fitWidth="83.0" layoutX="172.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Ticket.png" />
                            </image></ImageView>
+                        <Button fx:id="Configuracion" layoutX="104.0" layoutY="284.0" mnemonicParsing="false" text="Guardar Config." />
                      </children>
                   </AnchorPane>
             </content>
