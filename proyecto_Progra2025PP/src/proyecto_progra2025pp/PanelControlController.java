@@ -7,7 +7,15 @@ package proyecto_progra2025pp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
+import java.net.URL;
+import java.util.Locale;
+import java.util.ResourceBundle;
 /**
  * FXML Controller class
  *
@@ -15,12 +23,26 @@ import javafx.fxml.Initializable;
  */
 public class PanelControlController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    private ResourceBundle.Control locale;
+        
+        @FXML
+        private ComboBox<String> comboIdioma;
+        @FXML
+        private ComboBox<String> comboZonaHora;
+        @FXML 
+        private Label labelIdioma;
+        @FXML
+        private Label labelZonaHoraria;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    //Implementacion de Zonas horarias
+        ObservableList<String> zonas = FXCollections.observableArrayList(
+        "America/Guatemala", " America/Mexico_City", "America/Chicago", "Europe/Francia" 
+        );
+        
+        comboZonaHora.setItems(zonas);
+        comboZonaHora.setValue("America/Guatemala");
     
+    }    
 }
